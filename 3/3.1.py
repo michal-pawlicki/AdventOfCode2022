@@ -2,10 +2,8 @@ file = open("data", "r")
 lines = file.readlines()
 result = 0
 for line in lines:
-    arr1 = line[0:len([*line])//2]
-    arr2 = [*line[len([*line])//2:]]
-    for element in "".join(set(arr2)):
-        if element in arr1:
+    for element in "".join(set([*line[len([*line])//2:]])):
+        if element in line[0:len([*line])//2]:
             if element.isupper():
                 result += ord(element) - 38
             else:
